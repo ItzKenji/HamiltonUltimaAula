@@ -1,0 +1,50 @@
+<mat-card>
+  <form (submit)="onAdicionarCliente(clienteForm)" #clienteForm="ngForm">
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Digite seu nome"
+        name="nome"
+        [ngModel] = "cliente?.nome"
+        required
+        minlength="3"
+        #nome="ngModel"
+      /> <!-- Passando para o ngModel o CONTEXTO de um DETERMINADO cliente.nome dele  /  Fazer isso nos demais campos -->
+      <mat-error *ngIf="nome.invalid">Digite um nome válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="fone"
+        name="fone"
+        [ngModel] = "cliente?.fone"
+        required
+        #fone="ngModel"
+      />
+      <mat-error *ngIf="fone.invalid">Digite um telefone válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="email"
+        name="email"
+        [ngModel] = "cliente?.email"
+        required
+        #email="ngModel"
+      />
+      <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
+    </mat-form-field>
+
+    <button color="accent" mat-raised-button> <!-- Mudando a cor do botão para accent -->
+      Inserir Cliente
+    </button>
+  </form>
+</mat-card>
+
+<!-- Proximo Passo: Ir até o app.rrouting.module.ts para COMEÇAR os passos para ALTERAR -->
+<!-- Ir até o "cliente.service.ts" -->

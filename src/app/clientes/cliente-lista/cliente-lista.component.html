@@ -1,0 +1,17 @@
+<mat-accordion *ngIf="clientes.length > 0">
+  <mat-expansion-panel *ngFor="let cliente of clientes">
+    <mat-expansion-panel-header>Nome: {{ cliente.nome }}</mat-expansion-panel-header>
+    <p>Fone: {{ cliente.fone }}</p>
+    <hr />
+    <p>Email: {{ cliente.email }}</p>
+    <mat-action-row>
+      <a mat-button color="primary" [routerLink]="['/editar', cliente.id]" >EDITAR</a> <!-- Por se tratar de um LINK foi modificado para um <a> / Fazendo um VETOR de Routerlink com a ROTA "/editar" e o ID que ele ira EDITAR-->
+      <button mat-button color="warn" (click)="onDelete(cliente.id)">REMOVER</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="mat-body-1" style="text-align: center;" *ngIf="clientes.length <= 0">
+  Nenhum cliente cadastrado
+</p>
+
+<!-- Proximo Passo: Ir no "cliente-inserir.component.html" e fazer a utilização do ngModel -->
